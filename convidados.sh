@@ -38,5 +38,7 @@ for guestEntry in "${guestsArray[@]}"; do
     guests+=("$guest")
 done
 
-# Imprimir a lista de convidados
-echo "[" "${guests[@]}" "]"
+# Saída no arquivo JavaScript
+echo "var convidados = $(echo "[" "${guests[@]}" "]");" > convidados.js
+
+echo "Arquivo 'convidados.js' salvo no diretório local com sucesso."
