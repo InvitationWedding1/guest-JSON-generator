@@ -19,6 +19,11 @@ read -p "Digite a lista de convidados no formato 'NOME-SOBRENOME-NUMERO-ESPECIAL
 # Separar os convidados
 IFS=', ' read -r -a guestsArray <<< "$guestList"
 
+# Número total de convidados
+totalGuests=${#guestsArray[@]}
+# Índice atual
+index=1
+
 # Loop para processar cada convidado
 for guestEntry in "${guestsArray[@]}"; do
     firstName=$(echo "$guestEntry" | cut -d'-' -f1)
@@ -36,6 +41,13 @@ for guestEntry in "${guestsArray[@]}"; do
 
     # Adicionar o convidado ao array
     guests+=("$guest")
+
+    # Verificar se é o último convidado
+    if [ $index -lt $totalGuests ]; then
+        guests+=(",")
+    fi
+
+    ((index++))
 done
 
 # Saída no arquivo JavaScript
