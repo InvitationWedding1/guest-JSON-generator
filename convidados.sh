@@ -14,7 +14,7 @@ is_special() {
 }
 
 # Entrada da lista de convidados
-read -p "Digite a lista de convidados no formato 'NOME-SOBRENOME-NUMERO-ESPECIAL=SIM, NOME-SOBRENOME-NUMERO,-ESPECIAL=NAO,ETC...': " guestList
+read -p "Digite a lista de convidados no formato 'NOME-SOBRENOME-NUMERO-ESPECIAL=SIM, NOME-SOBRENOME-NUMERO-ESPECIAL=NAO,ETC...': " guestList
 
 # Separar os convidados
 IFS=', ' read -r -a guestsArray <<< "$guestList"
