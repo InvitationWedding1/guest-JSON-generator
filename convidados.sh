@@ -51,6 +51,6 @@ for guestEntry in "${guestsArray[@]}"; do
 done
 
 # Saída no arquivo JavaScript
-echo "var convidados = $(echo "[" "${guests[@]}" "]");" > convidados.js
+echo "var convidados = $(echo "[" "${guests[@]}" "]");" | tr -d '[:space:]' > convidados.js
 
 echo "Arquivo 'convidados.js' salvo no diretório local com sucesso."
